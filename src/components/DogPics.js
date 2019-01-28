@@ -1,9 +1,6 @@
 import * as React from 'react'
 
-export default function DogPics(props) {
-  return (<div>
-    <h1>All dogs</h1>
-
-    There are { props.dogs.length } albums available.
-  </div>)
-}
+export default function PhotoPage(props) {
+    return (<div>
+        <img src={props.dogPics[0].link}></img>
+    </div>)
