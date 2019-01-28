@@ -5,6 +5,7 @@ import DogPics from './DogPics'
 
 export default class DogPicsContainer extends React.Component {
   state = {
+    
   }
 
   componentDidMount() {
@@ -14,7 +15,7 @@ export default class DogPicsContainer extends React.Component {
   }
 
   render() {
-    if (!this.state.albums) return 'Loading...'
+    if (!this.state) return 'Loading...'
     return (
     <h1>we have {this.state.length} dogs</h1>
     // <DogPics dogs={this.state.dogs} />
