@@ -15,6 +15,10 @@ export default class DogPicsContainer extends React.Component {
 
   render() {
     if (!this.state.albums) return 'Loading...'
-    return <DogPics dogs={this.state.dogs} />
+    return (
+    <h1>we have {this.state.length} dogs</h1>
+    // <DogPics dogs={this.state.dogs} />
+    )
+
   }
 }
