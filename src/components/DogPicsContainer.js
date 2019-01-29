@@ -26,7 +26,6 @@ updateImages(images) {
 
 }
   
-
   componentDidMount() {
     request('https://dog.ceo/api/breeds/list/all')
       // .then(response => console.log(response.body.message))
@@ -37,25 +36,32 @@ updateImages(images) {
 
   updateBreeds(breed) {
     this.setState({ breeds: breed })
+  }
   
   // this.setState({ img: images })
-  
+
+  handleOncClick() {
+    console.log('click')
   }
+  
+  
 
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     if (!this.state) return 'Loading...'
     return (
       <div>
         {/* <h1>we have {Object.keys(this.state.breeds).length} breeds</h1> */}
         <p className="Guess">Can you guess the dog breed?</p>
+     <img className="Dogimage" src={this.state.img[Math.floor(Math.random()*this.state.img.length)]} alt='img'></img>
+//     <h1>we have {Object.keys(this.state.breeds).length} breeds</h1>
+<div className="AllOptions">
+    <button className="Option" onClick={this.handleOncClick}>Is this {Object.keys(this.state.breeds)[random]}?</button>
+    <button className="Option" onClick={this.handleOncClick}>>Is this {Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}?</button>
+    <button className="Option" onClick={this.handleOncClick}>Is this {Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}?</button>
     {/* <img src='https://images.dog.ceo/breeds/airedale/n02096051_1111.jpg' alt='img'></img> */}
-        <img className="Dogimage" src={this.state.img[Math.floor(Math.random()*this.state.img.length)]} alt='img'></img>
-      <div className="AllOptions">
-        <button className = "Option">{Object.keys(this.state.breeds)[random]}</button>
-        <button className = "Option">{Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}</button>
-        <button className = "Option">{Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}</button>
+
       </div>
 
     {/* <h2>THis is {Object.keys(this.state)[Math.floor(Math.random() * 87)]}</h2> */}
