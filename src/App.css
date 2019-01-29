@@ -1,0 +1,44 @@
+.App {
+  background-color: rgb(228, 152, 228);
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.Title {
+  font-size: 5rem;
+  color: white;
+}
+
+.Guess {
+  font-size: 3rem;
+  color: white;
+}
+
+.Dogimage {
+  border-radius: 50%;
+  max-height: 20rem;
+  border: 2px solid rgb(144, 191, 231)
+}
+
+.AllOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Option {
+  background-color: rgb(144, 191, 231);
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.Footer {
+  font-size: 1rem;
+  color: white;
+}
