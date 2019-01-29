@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as request from 'superagent'
-import DogPics from './DogPics'
 
 const random = Math.floor(Math.random() * 87)
 
