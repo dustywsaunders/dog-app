@@ -48,12 +48,16 @@ updateImages(images) {
     if (!this.state) return 'Loading...'
     return (
       <div>
-    <h1>we have {Object.keys(this.state.breeds).length} breeds</h1>
-    <h2>Is this {Object.keys(this.state.breeds)[random]}?</h2>
-    <h2>Is this {Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}?</h2>
-    <h2>Is this {Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}?</h2>
+        <h1>we have {Object.keys(this.state.breeds).length} breeds</h1>
+        <p>Can you guess the dog breed?</p>
     {/* <img src='https://images.dog.ceo/breeds/airedale/n02096051_1111.jpg' alt='img'></img> */}
-    <img src={this.state.img[Math.floor(Math.random()*this.state.img.length)]} alt='img'></img>
+        <img className="Dogimage" src={this.state.img[Math.floor(Math.random()*this.state.img.length)]} alt='img'></img>
+      <div className="AllOptions">
+        <h2 className = "Option">{Object.keys(this.state.breeds)[random]}</h2>
+        <h2 className = "Option">{Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}</h2>
+        <h2 className = "Option">{Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}</h2>
+      </div>
+
     {/* <h2>THis is {Object.keys(this.state)[Math.floor(Math.random() * 87)]}</h2> */}
 
     {/* <DogPics dogs={this.state.dogs} /> */}
