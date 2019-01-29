@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as request from 'superagent'
-import DogPics from './DogPics'
 
 const random = Math.floor(Math.random() * 87)
 
@@ -53,12 +52,18 @@ updateImages(images) {
     if (!this.state) return 'Loading...'
     return (
       <div>
-    <h1>we have {Object.keys(this.state.breeds).length} breeds</h1>
+        {/* <h1>we have {Object.keys(this.state.breeds).length} breeds</h1> */}
+        <p className="Guess">Can you guess the dog breed?</p>
+     <img className="Dogimage" src={this.state.img[Math.floor(Math.random()*this.state.img.length)]} alt='img'></img>
+//     <h1>we have {Object.keys(this.state.breeds).length} breeds</h1>
+<div className="AllOptions">
     <button className="Option" onClick={this.handleOncClick}>Is this {Object.keys(this.state.breeds)[random]}?</button>
     <button className="Option" onClick={this.handleOncClick}>>Is this {Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}?</button>
     <button className="Option" onClick={this.handleOncClick}>Is this {Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}?</button>
     {/* <img src='https://images.dog.ceo/breeds/airedale/n02096051_1111.jpg' alt='img'></img> */}
-    <img src={this.state.img[Math.floor(Math.random()*this.state.img.length)]} alt='img'></img>
+
+      </div>
+
     {/* <h2>THis is {Object.keys(this.state)[Math.floor(Math.random() * 87)]}</h2> */}
 
     {/* <DogPics dogs={this.state.dogs} /> */}
