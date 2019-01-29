@@ -53,9 +53,9 @@ updateImages(images) {
     {/* <img src='https://images.dog.ceo/breeds/airedale/n02096051_1111.jpg' alt='img'></img> */}
         <img className="Dogimage" src={this.state.img[Math.floor(Math.random()*this.state.img.length)]} alt='img'></img>
       <div className="AllOptions">
-        <h2 className = "Option">{Object.keys(this.state.breeds)[random]}</h2>
-        <h2 className = "Option">{Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}</h2>
-        <h2 className = "Option">{Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}</h2>
+        <button className = "Option">{Object.keys(this.state.breeds)[random]}</button>
+        <button className = "Option">{Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}</button>
+        <button className = "Option">{Object.keys(this.state.breeds)[Math.floor(Math.random() * 87)]}</button>
       </div>
 
     {/* <h2>THis is {Object.keys(this.state)[Math.floor(Math.random() * 87)]}</h2> */}
