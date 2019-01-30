@@ -1,18 +1,5 @@
 import *  as React from 'react';
 
-// const arr = []
-// while(arr.length < 3){
-//     var r = Math.floor(Math.random()*10);
-//     if(arr.indexOf(r) === -1) arr.push(r);
-// } 
-
-const orderButton = []
-while(orderButton.length <= 2){
-    var q = Math.floor(Math.random()*3);
-    if(orderButton.indexOf(q) === -1) orderButton.push(q);
-} 
-
-
 export default function DogPics(props) {
   return (
     <div>
@@ -31,5 +18,3 @@ export default function DogPics(props) {
   </div>
   </div>
   )}
-
-    

@@ -4,7 +4,8 @@ export function addUser(firstName) {
   return {
     type: 'ADD_USER',
     payload: {
-      firstName: firstName
+      firstName: firstName,
+      points: 0
     }
   }
 }
