@@ -1,5 +1,6 @@
 import *  as React from 'react';
 
+
 const arr = []
 while(arr.length < 3){
     var r = Math.floor(Math.random()*10);
@@ -28,5 +29,3 @@ export default function DogPics(props) {
   </div>
   </div>
   )}
-
-    
