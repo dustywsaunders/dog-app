@@ -30,13 +30,12 @@ class DogPicsContainer extends React.Component {
     this.props.getBreeds()
   }
 
-
   render() {
     // console.log(this.props);
-    if (!this.props.breeds) return 'Loading...'
+    if (!this.props.allbreeds) return 'Loading...'
     return (
       <div>
-      <DogPics breeds = { this.props.breeds } handleCorrect = {this.handleCorrect}
+      <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
       handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state}/>
       </div>
     )
@@ -47,7 +46,8 @@ class DogPicsContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    breeds: state.breeds
+    allbreeds: state.breeds.allbreeds,
+    current: state.breeds.current
   }
 }
 

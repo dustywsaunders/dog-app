@@ -12,22 +12,19 @@ while(orderButton.length <= 2){
     if(orderButton.indexOf(q) === -1) orderButton.push(q);
 } 
 
+
 export default function DogPics(props) {
-  // console.log(props);
-  console.log(Object.keys(props.breeds)[arr[0]])
-  
   return (
     <div>
       <p className="Guess">Can you guess the dog breed?</p>
       {props.answer}
-   {/* <img className="Dogimage" src={props.img[Math.floor(Math.random()*props.img.length)]} alt='img'></img> */}
 <div className="AllOptions">
   <button className="Option" onClick={props.handleCorrect} 
-  style={{backgroundColor: props.localState.backgroundColor1, order: orderButton[0]}}>{Object.keys(props.breeds)[arr[0]]}</button>
+  style={{backgroundColor: props.localState.backgroundColor1, order: orderButton[0]}}>{props.current}</button>
   <button className="Option" onClick={props.handleWrong1}
-  style={{backgroundColor: props.localState.backgroundColor2, order: orderButton[1]}}>{Object.keys(props.breeds)[arr[1]]}</button>
+  style={{backgroundColor: props.localState.backgroundColor2, order: orderButton[1]}}>{Object.keys(props.allbreeds)[arr[1]]}</button>
   <button className="Option" onClick={props.handleWrong2}
-  style={{backgroundColor: props.localState.backgroundColor3, order: orderButton[2]}}>{Object.keys(props.breeds)[arr[2]]}</button>
+  style={{backgroundColor: props.localState.backgroundColor3, order: orderButton[2]}}>{Object.keys(props.allbreeds)[arr[2]]}</button>
   </div>
   </div>
   )}
