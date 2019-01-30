@@ -1,5 +1,5 @@
-import { SET_BREEDS } from "../actions/setBreeds";
 
+import { SET_BREEDS } from "../actions/setBreeds";
 
 export default  (state = {}, action = {}) => {
   switch (action.type) {

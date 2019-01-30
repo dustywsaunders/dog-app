@@ -23,6 +23,4 @@ export default function DogPics(props) {
   </div>
   )}
 
-  // <button className="Option" onClick={this.handleOncClick}>{Object.keys(props.breeds)[random]}</button>
-  // <button className="Option" onClick={this.handleOncClick}>{Object.keys(props.breeds)[Math.floor(Math.random() * 87)]}</button>
-  // <button className="Option" onClick={this.handleOncClick}>{Object.keys(props.breeds)[Math.floor(Math.random() * 87)]}</button>
+    
