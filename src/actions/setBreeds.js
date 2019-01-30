@@ -6,7 +6,8 @@ export function setBreeds(allbreeds) {
     type: SET_BREEDS,
     payload: {
       allbreeds,
-      current: Object.keys(allbreeds)[Math.floor(Math.random() * 87)]
+      current: 
+      Object.keys(allbreeds)[Math.floor(Math.random() * 3)]
   }
 }
 }
