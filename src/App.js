@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import DogPicsContainer from './components/DogPicsContainer'
 import ImageContainer from './components/ImageContainer'
-import UserContainer from './components/UserContainer';
+import User from './components/User';
 
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
         <header>
           <h1 className='Title'>Doggo</h1>
         </header>
-        <UserContainer />
+        <User />
         <ImageContainer />
         <DogPicsContainer />
         <footer className='Footer'>

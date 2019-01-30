@@ -1,8 +1,11 @@
 import * as React from 'react'
 import { getBreeds } from '../actions/getBreeds'
 import { setBreeds } from '../actions/setBreeds'
+import { addPoint } from '../actions/addPoint'
 import { connect } from 'react-redux'
 import DogPics from './DogPics'
+import User from './User'
+
 
 class DogPicsContainer extends React.Component {
   state = {
@@ -14,6 +17,8 @@ class DogPicsContainer extends React.Component {
   handleCorrect = () => {
     console.log('Correct!')
     this.setState({backgroundColor1: 'green'})
+    // this.props.addPoint()
+
   }
 
   handleWrong1 = () => {
@@ -47,8 +52,9 @@ class DogPicsContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    breeds: state.breeds
+    breeds: state.breeds,
+    user: state.user
   }
 }
 
-export default connect (mapStateToProps, { getBreeds, setBreeds })(DogPicsContainer)
+export default connect (mapStateToProps, { getBreeds, setBreeds, addPoint, User})(DogPicsContainer)

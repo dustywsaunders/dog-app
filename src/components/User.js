@@ -16,18 +16,14 @@ class User extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-
-    // console.log('imma state from user', this.state)
     if (this.state.name) {
       this.props.addUser(this.state.name)
-      console.log('imma state from user', this.state.name)
     }
   }
 
   render() {
-    return (<div>
-      <h2>Add a user</h2>
-
+    if (!this.props.user.firstName) return (<div>    
+      <h2>Hi, what's your name?</h2>
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
@@ -36,13 +32,17 @@ class User extends React.Component {
         <input type="submit" value="Submit" />
       </form>
     </div>)
+    
+    return (
+      <h2>Hi, {this.props.user.firstName}</h2>
+   )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    name: state
+    user: state.user
   }
 }
 
-export default connect (mapStateToProps, { addUser, User })(User)
+export default connect (mapStateToProps, { addUser })(User)
