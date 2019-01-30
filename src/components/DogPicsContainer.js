@@ -11,9 +11,9 @@ class DogPicsContainer extends React.Component {
   }
 
   render() {    
-    if (!this.props.breeds) return 'Loading...'
+    if (!this.props.allbreeds) return 'Loading...'
     return (
-      <DogPics breeds = { this.props.breeds }/>
+      <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current }/>
     )
 
   }
@@ -21,7 +21,8 @@ class DogPicsContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    breeds: state.breeds
+    allbreeds: state.breeds.allbreeds,
+    current: state.breeds.current
   }
 }
 
