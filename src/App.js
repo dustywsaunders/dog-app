@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Provider} from 'react-redux'
-import store from './store.js'
 import DogPicsContainer from './components/DogPicsContainer'
-// import user from './components/user'
+import ImageContainer from './components/ImageContainer'
+import UserContainer from './components/UserContainer';
+
 
 class App extends Component {
   render() {
     return (
-      <div className = "App">
-      <Provider store={store}>
+      <div className="App">
         <header>
           <h1 className='Title'>Doggo</h1>
         </header>
-        {/* <user /> */} 
+        <UserContainer />
+        <ImageContainer />
         <DogPicsContainer />
         <footer className='Footer'>
           <p>Made with ❤ by Leonie, Denis & Dusty at Codaisseur</p>
         </footer>
-      </Provider>
-
-      
-    
       </div>
     );
   }
