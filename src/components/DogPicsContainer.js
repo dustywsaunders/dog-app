@@ -44,12 +44,13 @@ class DogPicsContainer extends React.Component {
     setTimeout(() => {
       this.props.getBreeds()
       setTimeout(() => {
+        this.setState({dogName: arr ? arr1 : arr,
+          buttonOrder: orderButton ? orderButton1 : orderButton})
         const current = this.props.current
         this.props.getImage(current)
       }, 50)
       this.resetButton()
-      this.setState({dogName: arr ? arr1 : arr,
-    buttonOrder: orderButton ? orderButton1 : orderButton})
+      
     }, 2000)    
   }
 
