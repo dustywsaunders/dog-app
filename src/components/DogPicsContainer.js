@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { getBreeds } from '../actions/getBreeds'
+import { getImage } from '../actions/getImage'
 import { setBreeds } from '../actions/setBreeds'
 import { addPoint } from '../actions/addPoint'
 import { connect } from 'react-redux'
@@ -12,13 +13,18 @@ class DogPicsContainer extends React.Component {
     backgroundColor1: 'rgb(144, 191, 231)',
     backgroundColor2: 'rgb(144, 191, 231)',
     backgroundColor3: 'rgb(144, 191, 231)'
-    }
+  }
 
   handleCorrect = () => {
-    console.log('Correct!')
     this.setState({backgroundColor1: 'green'})
-    // this.props.addPoint()
-
+    setTimeout(() => {
+      this.props.getBreeds()
+      setTimeout(() => {
+        const current = this.props.current
+        this.props.getImage(current)
+      }, 50)
+      this.resetButton()
+    }, 2000)    
   }
 
   handleWrong1 = () => {
@@ -29,6 +35,15 @@ class DogPicsContainer extends React.Component {
   handleWrong2 = () => {
     console.log('Wrong')
     this.setState({backgroundColor3: 'red'})
+  }
+
+  resetButton = () => {
+    this.setState({
+      backgroundColor1: 'rgb(144, 191, 231)',
+      backgroundColor2: 'rgb(144, 191, 231)',
+      backgroundColor3: 'rgb(144, 191, 231)'
+
+    })
   }
 
   componentDidMount() {
@@ -57,4 +72,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect (mapStateToProps, { getBreeds, setBreeds, addPoint, User})(DogPicsContainer)
+export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint, User})(DogPicsContainer)
