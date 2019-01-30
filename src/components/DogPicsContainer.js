@@ -52,7 +52,7 @@ class DogPicsContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     allbreeds: state.breeds.allbreeds,
-    current: state.breeds.current
+    current: state.breeds.current,
     user: state.user
   }
 }
