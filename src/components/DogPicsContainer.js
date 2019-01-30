@@ -8,10 +8,11 @@ import DogPics from './DogPics'
 
 
 class DogPicsContainer extends React.Component {
-  // state = {
-  //   img: [],
-  //   breeds: {}
-  //   }
+  state = {
+    backgroundColor1: 'rgb(144, 191, 231)',
+    backgroundColor2: 'rgb(144, 191, 231)',
+    backgroundColor3: 'rgb(144, 191, 231)'
+    }
   
 //   getImages () {
 //     request(`https://dog.ceo/api/breed/${Object.keys(this.state.breeds)[random]}/images`)
@@ -43,25 +44,37 @@ class DogPicsContainer extends React.Component {
   
   // this.setState({ img: images })
 
-  // handleOncClick() {
-  //   console.log('click')
-  // }
-  
+
+  handleCorrect = () => {
+    console.log('Correct!')
+    this.setState({backgroundColor1: 'green'})
+  }
+
+  handleWrong1 = () => {
+    console.log('Wrong')
+    this.setState({backgroundColor2: 'red'})
+  }
+
+  handleWrong2 = () => {
+    console.log('Wrong')
+    this.setState({backgroundColor3: 'red'})
+  }
 
   componentDidMount() {
     this.props.getBreeds()
   }
 
 
-
-
   render() {
     // console.log(this.props);
-    
     if (!this.props.breeds) return 'Loading...'
     return (
-      <DogPics breeds = { this.props.breeds }/>
+      <div>
+      <DogPics breeds = { this.props.breeds } handleCorrect = {this.handleCorrect}
+      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state}/>
+      </div>
     )
+    
 
   }
 }
