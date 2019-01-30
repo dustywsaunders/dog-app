@@ -17,8 +17,7 @@ class DogPicsContainer extends React.Component {
   handleCorrect = () => {
     console.log('Correct!')
     this.setState({backgroundColor1: 'green'})
-    // this.props.addPoint()
-
+    this.props.user.points+=1
   }
 
   handleWrong1 = () => {
