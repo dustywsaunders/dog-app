@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import './App.css';
 import DogPicsContainer from './components/DogPicsContainer'
 import ImageContainer from './components/ImageContainer'
+import UserContainer from './components/UserContainer';
 
 
 class App extends Component {
   render() {
     return (
-      <div className = "App">
+      <div className="App">
         <header>
           <h1 className='Title'>Doggo</h1>
         </header>
+        <UserContainer />
         <ImageContainer />
         <DogPicsContainer />
         <footer className='Footer'>
