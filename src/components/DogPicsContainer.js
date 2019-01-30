@@ -4,7 +4,6 @@ import { setBreeds } from '../actions/setBreeds'
 import { addPoint } from '../actions/addPoint'
 import { connect } from 'react-redux'
 import DogPics from './DogPics'
-import User from './User'
 
 
 class DogPicsContainer extends React.Component {
@@ -17,7 +16,9 @@ class DogPicsContainer extends React.Component {
   handleCorrect = () => {
     console.log('Correct!')
     this.setState({backgroundColor1: 'green'})
-    this.props.user.points+=1
+    this.props.addPoint(1)
+    // console.log(this.props)
+
   }
 
   handleWrong1 = () => {
@@ -42,6 +43,8 @@ class DogPicsContainer extends React.Component {
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
       handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state}/>
       </div>
+      
+
     )
     
 
@@ -56,4 +59,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect (mapStateToProps, { getBreeds, setBreeds, addPoint, User})(DogPicsContainer)
+export default connect (mapStateToProps, { getBreeds, setBreeds, addPoint})(DogPicsContainer)
