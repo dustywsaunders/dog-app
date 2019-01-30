@@ -52,13 +52,41 @@ class DogPicsContainer extends React.Component {
   }
 
   handleWrong1 = () => {
-    // console.log('Wrong')
+
     this.setState({backgroundColor2: 'red'})
+    this.setState({backgroundColor3: 'red'})
+
+    this.setState({backgroundColor1: 'green'})
+    setTimeout(() => {
+      this.props.getBreeds()
+      setTimeout(() => {
+        this.setState({dogName: changeDogName(),
+          buttonOrder: changeOrderButtons()})
+        const current = this.props.current
+        this.props.getImage(current)
+      }, 50)
+      this.resetButton()
+      
+    }, 2000)  
+
   }
 
   handleWrong2 = () => {
-    // console.log('Wrong')
+    this.setState({backgroundColor2: 'red'})
     this.setState({backgroundColor3: 'red'})
+
+    this.setState({backgroundColor1: 'green'})
+    setTimeout(() => {
+      this.props.getBreeds()
+      setTimeout(() => {
+        this.setState({dogName: changeDogName(),
+          buttonOrder: changeOrderButtons()})
+        const current = this.props.current
+        this.props.getImage(current)
+      }, 50)
+      this.resetButton()
+      
+    }, 2000) 
   }
 
   resetButton = () => {

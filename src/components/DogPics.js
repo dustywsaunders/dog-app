@@ -3,8 +3,6 @@ import *  as React from 'react';
 export default function DogPics(props) {
   return (
     <div>
-      <p className="Guess">Can you guess the dog breed?</p>
-      {props.answer}
 <div className="AllOptions">
   <button className="Option" onClick={props.handleCorrect} 
   style={{backgroundColor: props.localState.backgroundColor1, order: props.localState.buttonOrder[0]}}>
