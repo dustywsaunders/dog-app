@@ -7,45 +7,42 @@ import { connect } from 'react-redux'
 import DogPics from './DogPics'
 import User from './User'
 
-
+function changeDogName(){
 const arr = []
 while(arr.length < 3){
-var r = Math.floor(Math.random()*10);
+var r = Math.floor(Math.random()*3);
 if(arr.indexOf(r) === -1) arr.push(r);
 }
-const arr1 = []
-while(arr1.length < 3){
-var s = Math.floor(Math.random()*10);
-if(arr1.indexOf(s) === -1) arr1.push(s);
+return arr
 }
 
+function changeOrderButtons(){
 const orderButton = []
 while(orderButton.length <= 2){
-    var q = Math.floor(Math.random()*3);
-    if(orderButton.indexOf(q) === -1) orderButton.push(q);
+var q = Math.floor(Math.random()*3);
+if(orderButton.indexOf(q) === -1) orderButton.push(q);
 } 
-const orderButton1 = []
-while(orderButton1.length <= 2){
-    var o = Math.floor(Math.random()*3);
-    if(orderButton1.indexOf(o) === -1) orderButton1.push(o);
-} 
+return orderButton
+}
+
 
 class DogPicsContainer extends React.Component {
   state = {
     backgroundColor1: 'rgb(144, 191, 231)',
     backgroundColor2: 'rgb(144, 191, 231)',
     backgroundColor3: 'rgb(144, 191, 231)',
-    dogName: arr,
-    buttonOrder: orderButton
+    dogName: changeDogName(),
+    buttonOrder: changeOrderButtons()
     }
+
 
   handleCorrect = () => {
     this.setState({backgroundColor1: 'green'})
     setTimeout(() => {
       this.props.getBreeds()
       setTimeout(() => {
-        this.setState({dogName: arr ? arr1 : arr,
-          buttonOrder: orderButton ? orderButton1 : orderButton})
+        this.setState({dogName: changeDogName(),
+          buttonOrder: changeOrderButtons()})
         const current = this.props.current
         this.props.getImage(current)
       }, 50)
@@ -55,12 +52,12 @@ class DogPicsContainer extends React.Component {
   }
 
   handleWrong1 = () => {
-    console.log('Wrong')
+    // console.log('Wrong')
     this.setState({backgroundColor2: 'red'})
   }
 
   handleWrong2 = () => {
-    console.log('Wrong')
+    // console.log('Wrong')
     this.setState({backgroundColor3: 'red'})
   }
 
@@ -79,6 +76,7 @@ class DogPicsContainer extends React.Component {
 
   render() {
     console.log(this.state.dogName)
+    console.log(this.state.buttonOrder)
     // console.log(this.props);
     if (!this.props.allbreeds) return 'Loading...'
     return (
