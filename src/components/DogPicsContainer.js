@@ -46,10 +46,7 @@ class DogPicsContainer extends React.Component {
       level += 3
     }
   }
-    
-
-      
-
+  
   handleCorrect = () => {
     this.setState({backgroundColor1: 'lightgreen'})
   
