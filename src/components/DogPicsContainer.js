@@ -8,46 +8,60 @@ import { connect } from 'react-redux'
 import DogPics from './DogPics'
 import Progress from './Progress';
 
+let level = 3
+
 function changeDogName(){
-const arr = []
-while(arr.length < 3){
-var r = Math.floor(Math.random()*87);
-if(arr.indexOf(r) === -1) arr.push(r);
+  const arr = []
+  while(arr.length < 3){
+  var r = Math.floor(Math.random() * level);
+  if(arr.indexOf(r) === -1) arr.push(r);
+  }
+  return arr
 }
-return arr
-}
+// const num = changeDogName()
+
 
 function changeOrderButtons(){
-const orderButton = []
-while(orderButton.length <= 2){
-var q = Math.floor(Math.random()*3);
-if(orderButton.indexOf(q) === -1) orderButton.push(q);
-} 
-return orderButton
+  const orderButton = []
+  while(orderButton.length <= 2){
+  var q = Math.floor(Math.random() * level);
+  if(orderButton.indexOf(q) === -1) orderButton.push(q);
+  } 
+  return orderButton
 }
-
 
 class DogPicsContainer extends React.Component {
   state = {
     backgroundColor1: 'rgb(144, 191, 231)',
     backgroundColor2: 'rgb(144, 191, 231)',
     backgroundColor3: 'rgb(144, 191, 231)',
-    dogName: changeDogName(),
+    dogName: this.checkDogName(),
     buttonOrder: changeOrderButtons()
     }
 
+  determineLevel() {  
+    if (this.props.userPoint <= 2) {
+      level = 3
+    } else if (this.props.userPoint >= 3 && this.props.userPoint <= 4){
+      level = 6
+    } else if (this.props.userPoint >= 5 && this.props.userPoint <= 6){
+      level = 9
+    }
+  };
+    
+
+      
 
   handleCorrect = () => {
-    this.setState({backgroundColor1: 'lightgreen'})
-  
-
+    this.setState({backgroundColor1: 'lightgreen'}
     this.props.addPoint(1)
+    this.determineLevel()
 
-
+    
     setTimeout(() => {
-      this.props.getBreeds()
+      this.props.getBreeds(level)
       setTimeout(() => {
-        this.setState({dogName: changeDogName(),
+        this.setState({dogName: this.checkDogName(),
           buttonOrder: changeOrderButtons()})
         const current = this.props.current
         this.props.getImage(current)
@@ -61,12 +75,14 @@ class DogPicsContainer extends React.Component {
 
     this.setState({backgroundColor2: 'salmon'})
     this.setState({backgroundColor3: 'salmon'})
+    this.determineLevel()
+
 
     this.props.minusPoint(1)
 
     this.setState({backgroundColor1: 'lightgreen'})
     setTimeout(() => {
-      this.props.getBreeds()
+      this.props.getBreeds(level)
       setTimeout(() => {
         this.setState({dogName: changeDogName(),
           buttonOrder: changeOrderButtons()})
@@ -76,18 +92,21 @@ class DogPicsContainer extends React.Component {
       this.resetButton()
       
     }, 2000)  
-
   }
 
   handleWrong2 = () => {
     this.setState({backgroundColor2: 'salmon'})
     this.setState({backgroundColor3: 'salmon'})
+
+    this.determineLevel()
+
+
     this.setState({backgroundColor1: 'lightgreen'})
 
     this.props.minusPoint(1)
 
     setTimeout(() => {
-      this.props.getBreeds()
+      this.props.getBreeds(level)
       setTimeout(() => {
         this.setState({dogName: changeDogName(),
           buttonOrder: changeOrderButtons()})
@@ -104,12 +123,11 @@ class DogPicsContainer extends React.Component {
       backgroundColor1: 'rgb(144, 191, 231)',
       backgroundColor2: 'rgb(144, 191, 231)',
       backgroundColor3: 'rgb(144, 191, 231)'
-
     })
   }
 
   componentDidMount() {
-    this.props.getBreeds()
+    this.props.getBreeds(level)
     document.addEventListener("keydown", this.handleKeyPress)
   }
   componentWillUnmount() {
@@ -127,33 +145,37 @@ class DogPicsContainer extends React.Component {
     }
   } 
 
-  render() {
-    console.log('this is this points', this.props.user.points)
-    console.log(this.state.dogName)
-    console.log(this.state.buttonOrder)
-    // console.log(this.props);
-    if (!this.props.allbreeds) return 'Loading...'
+  checkDogName() {
+    if (this.props.allbreeds === null) return ['akita', 'appenzeller']
+    let num = changeDogName()
+    let selectNum = num.filter(number => this.props.current !== Object.keys(this.props.allbreeds)[number])
+    return [Object.keys(this.props.allbreeds)[selectNum[0]], Object.keys(this.props.allbreeds)[selectNum[1]]]
+  }
+
+  render() {    
+    if (this.props.allbreeds === null) return 'Loading...'
+
     return (
       <div>
         <Progress points = {this.props.user.points} wrong = {this.props.user.wrong}/>
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
-      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} />
-      </div>
-      
 
+      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} addPoint = {this.props.addPoint} userPoint = {this.props.userPoint} level={this.level}/>
+      </div>
     )
-    
 
   }
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     allbreeds: state.breeds.allbreeds,
     current: state.breeds.current,
-    user: state.user
+    userPoint: state.user.points,
+    level: level
   }
 }
 
+export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint, minusPoint, level })(DogPicsContainer)
 
-export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint, minusPoint })(DogPicsContainer)
