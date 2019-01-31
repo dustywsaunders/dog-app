@@ -1,7 +1,9 @@
 import *  as React from 'react';
 
 export default function DogPics(props) {
+  
   return (
+    
   <div>
     <div>
       <p className = "Hint">hint: This dog breed's name has {props.current.length} letters. It starts with '{props.current[0]}' and ends with '{props.current[props.current.length-1]}'.</p>

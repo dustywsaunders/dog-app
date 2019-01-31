@@ -49,15 +49,15 @@ class DogPicsContainer extends React.Component {
     }
 
     determineLevel() {  
-      if (this.props.userPoint <= 3) {
+      if (this.props.userPoint <= 2) {
         level = 3
-      } else if (this.props.userPoint > 3 && this.props.userPoint <= 6){
+      } else if (this.props.userPoint >= 3 && this.props.userPoint <= 4){
         level = 6
+      } else if (this.props.userPoint >= 5 && this.props.userPoint <= 6){
+        level = 9
       }
     };
     
-
-
   handleCorrect = () => {
     this.setState({backgroundColor1: 'lightgreen'})
   
@@ -67,7 +67,7 @@ class DogPicsContainer extends React.Component {
 
 
     setTimeout(() => {
-      this.props.getBreeds()
+      this.props.getBreeds(level)
       setTimeout(() => {
         this.setState({dogName: changeDogName(),
           buttonOrder: changeOrderButtons()})
@@ -83,10 +83,12 @@ class DogPicsContainer extends React.Component {
 
     this.setState({backgroundColor2: 'salmon'})
     this.setState({backgroundColor3: 'salmon'})
+    this.determineLevel()
+
 
     this.setState({backgroundColor1: 'lightgreen'})
     setTimeout(() => {
-      this.props.getBreeds()
+      this.props.getBreeds(level)
       setTimeout(() => {
         this.setState({dogName: changeDogName(),
           buttonOrder: changeOrderButtons()})
@@ -102,10 +104,12 @@ class DogPicsContainer extends React.Component {
   handleWrong2 = () => {
     this.setState({backgroundColor2: 'salmon'})
     this.setState({backgroundColor3: 'salmon'})
+    this.determineLevel()
+
 
     this.setState({backgroundColor1: 'lightgreen'})
     setTimeout(() => {
-      this.props.getBreeds()
+      this.props.getBreeds(level)
       setTimeout(() => {
         this.setState({dogName: changeDogName(),
           buttonOrder: changeOrderButtons()})
@@ -127,7 +131,7 @@ class DogPicsContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getBreeds()
+    this.props.getBreeds(level)
     document.addEventListener("keydown", this.handleKeyPress)
   }
   componentWillUnmount() {
@@ -150,13 +154,15 @@ class DogPicsContainer extends React.Component {
     // console.log(this.state.buttonOrder)
     console.log(this.props.userPoint, "userpoint");
     console.log(level, "level");
+    console.log(this.props, "props");
+    
     
 
     if (!this.props.allbreeds) return 'Loading...'
     return (
       <div>
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
-      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} addPoint = {this.props.addPoint} userPoint = {this.props.userPoint}/>
+      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} addPoint = {this.props.addPoint} userPoint = {this.props.userPoint} level={this.level}/>
       </div>
       
 
@@ -170,9 +176,10 @@ const mapStateToProps = (state) => {
   return {
     allbreeds: state.breeds.allbreeds,
     current: state.breeds.current,
-    userPoint: state.user.points
+    userPoint: state.user.points,
+    level: level
   }
 }
 
 
-export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint })(DogPicsContainer)
+export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint, level })(DogPicsContainer)
