@@ -12,6 +12,7 @@ const defUser = {
 
 
 export default  (state = defUser, action = {}) => {
+
   switch (action.type) {
     case ADD_USER:
     return { ...state, firstName: action.payload.firstName }
@@ -26,6 +27,7 @@ export default  (state = defUser, action = {}) => {
     return [
 
     ]
+
 
      default:
       return state
