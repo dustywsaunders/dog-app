@@ -37,18 +37,18 @@ class DogPicsContainer extends React.Component {
     buttonOrder: changeOrderButtons()
     }
 
-    determineLevel() {  
-      if (this.props.userPoint <= 2) {
-        level = 3
-      } else if (this.props.userPoint >= 3 && this.props.userPoint <= 4){
-        level = 6
-      } else if (this.props.userPoint >= 5 && this.props.userPoint <= 6){
-        level = 9
-      }
-    };
+  determineLevel() {  
+    if (this.props.userPoint <= 2) {
+      level = 3
+    } else if (this.props.userPoint >= 3 && this.props.userPoint <= 4){
+      level = 6
+    } else if (this.props.userPoint >= 5 && this.props.userPoint <= 6){
+      level = 9
+    }
+  };
     
 
-    }  
+      
 
   handleCorrect = () => {
     this.setState({backgroundColor1: 'lightgreen'})
@@ -146,13 +146,11 @@ class DogPicsContainer extends React.Component {
     let num = changeDogName()
     let selectNum = num.filter(number => this.props.current !== Object.keys(this.props.allbreeds)[number])
     return [Object.keys(this.props.allbreeds)[selectNum[0]], Object.keys(this.props.allbreeds)[selectNum[1]]]
-    }
+  }
 
   render() {
 
     
-
-    if (!this.props.allbreeds) return 'Loading...'
     if (this.props.allbreeds === null) return 'Loading...'
 
 
@@ -161,8 +159,6 @@ class DogPicsContainer extends React.Component {
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
       handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} addPoint = {this.props.addPoint} userPoint = {this.props.userPoint} level={this.level}/>
       </div>
-      
-
     )
 
   }
