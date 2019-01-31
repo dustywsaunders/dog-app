@@ -161,8 +161,10 @@ class DogPicsContainer extends React.Component {
     return (
       <div>
       <Progress points = {this.props.user.points} wrong = {this.props.user.wrong}/>
-      <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
-      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} addPoint = {this.props.addPoint} userPoint = {this.props.userPoint} level={this.level}/>
+      <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } 
+      handleCorrect = {this.handleCorrect} handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} 
+      localState={this.state} addPoint = {this.props.addPoint} userPoint = {this.props.userPoint} 
+      level={this.level} user={this.props.user}/>
       </div>
     )
 
