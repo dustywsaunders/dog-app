@@ -2,6 +2,7 @@ import * as React from 'react'
 import { getBreeds } from '../actions/getBreeds'
 import { getImage } from '../actions/getImage'
 import { setBreeds } from '../actions/setBreeds'
+import { setCurrent } from '../actions/setCurrent'
 import { addPoint } from '../actions/addPoint'
 import { minusPoint } from '../actions/minusPoint'
 import { connect } from 'react-redux'
@@ -125,8 +126,10 @@ class DogPicsContainer extends React.Component {
       backgroundColor1: 'rgb(144, 191, 231)',
       backgroundColor2: 'rgb(144, 191, 231)',
       backgroundColor3: 'rgb(144, 191, 231)'
-
     })
+    if (!this.props.user.known.includes(this.props.current)) {
+      this.props.setCurrent(this.props.current)
+    }
   }
 
   componentDidMount() {
@@ -182,5 +185,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint,minusPoint, level })(DogPicsContainer)
+export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint,minusPoint, level, setCurrent })(DogPicsContainer)
 
