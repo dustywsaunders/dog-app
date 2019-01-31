@@ -4,10 +4,10 @@ import { setBreeds } from './setBreeds'
 
 export const GET_BREEDS = 'GET_BREEDS';
 
-export function getBreeds () {
+export function getBreeds (level) {
  return function (dispatch) {
   request('https://dog.ceo/api/breeds/list/all')
-  .then(response => dispatch(setBreeds(response.body.message)))
+  .then(response => dispatch(setBreeds(response.body.message, level)))
  }
 }
   
