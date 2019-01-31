@@ -3,8 +3,10 @@ import { getBreeds } from '../actions/getBreeds'
 import { getImage } from '../actions/getImage'
 import { setBreeds } from '../actions/setBreeds'
 import { addPoint } from '../actions/addPoint'
+import { minusPoint } from '../actions/minusPoint'
 import { connect } from 'react-redux'
 import DogPics from './DogPics'
+import Progress from './Progress';
 
 function changeDogName(){
 const arr = []
@@ -60,6 +62,8 @@ class DogPicsContainer extends React.Component {
     this.setState({backgroundColor2: 'salmon'})
     this.setState({backgroundColor3: 'salmon'})
 
+    this.props.minusPoint(1)
+
     this.setState({backgroundColor1: 'lightgreen'})
     setTimeout(() => {
       this.props.getBreeds()
@@ -78,8 +82,10 @@ class DogPicsContainer extends React.Component {
   handleWrong2 = () => {
     this.setState({backgroundColor2: 'salmon'})
     this.setState({backgroundColor3: 'salmon'})
-
     this.setState({backgroundColor1: 'lightgreen'})
+
+    this.props.minusPoint(1)
+
     setTimeout(() => {
       this.props.getBreeds()
       setTimeout(() => {
@@ -129,8 +135,9 @@ class DogPicsContainer extends React.Component {
     if (!this.props.allbreeds) return 'Loading...'
     return (
       <div>
+        <Progress points = {this.props.user.points} wrong = {this.props.user.wrong}/>
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
-      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} points = {this.props.user.points}/>
+      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} />
       </div>
       
 
@@ -149,4 +156,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint })(DogPicsContainer)
+export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint, minusPoint })(DogPicsContainer)
