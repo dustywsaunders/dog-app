@@ -38,11 +38,11 @@ class DogPicsContainer extends React.Component {
 
   handleCorrect = () => {
     this.setState({backgroundColor1: 'lightgreen'})
-  
+
 
     this.props.addPoint(1)
 
-
+    
     setTimeout(() => {
       this.props.getBreeds()
       setTimeout(() => {
@@ -73,7 +73,6 @@ class DogPicsContainer extends React.Component {
       this.resetButton()
       
     }, 2000)  
-
   }
 
   handleWrong2 = () => {
@@ -99,7 +98,6 @@ class DogPicsContainer extends React.Component {
       backgroundColor1: 'rgb(144, 191, 231)',
       backgroundColor2: 'rgb(144, 191, 231)',
       backgroundColor3: 'rgb(144, 191, 231)'
-
     })
   }
 
@@ -123,7 +121,7 @@ class DogPicsContainer extends React.Component {
   } 
 
   checkDogName() {
-    if (this.props.allbreeds === null) return ['option1', 'option2']
+    if (this.props.allbreeds === null) return ['akita', 'appenzeller']
     let num = changeDogName()
     let selectNum = num.filter(number => this.props.current !== Object.keys(this.props.allbreeds)[number])
     return [Object.keys(this.props.allbreeds)[selectNum[0]], Object.keys(this.props.allbreeds)[selectNum[1]]]
