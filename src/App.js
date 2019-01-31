@@ -4,7 +4,6 @@ import DogPicsContainer from './components/DogPicsContainer'
 import ImageContainer from './components/ImageContainer'
 import User from './components/User';
 import { connect } from 'react-redux'
-import TestButton from './components/TestButton'
 
 class App extends Component {
   render() {
