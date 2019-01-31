@@ -37,17 +37,15 @@ class DogPicsContainer extends React.Component {
     backgroundColor3: 'rgb(144, 191, 231)',
     dogName: this.checkDogName(),
     buttonOrder: changeOrderButtons()
-    }
+  }
 
-  determineLevel() {  
-    if (this.props.userPoint <= 10) {
-      level = 3
-    } else if (this.props.userPoint >= 11 && this.props.userPoint <= 20){
-      level = 6
-    } else if (this.props.userPoint >= 21 && this.props.userPoint <= 30){
-      level = 9
+
+
+  determineLevel() {
+    if (this.props.userPoint%10 === 0 && this.props.userPoint <= 270) {
+      level += 3
     }
-  };
+  }
     
 
       
@@ -125,7 +123,6 @@ class DogPicsContainer extends React.Component {
       backgroundColor1: 'rgb(144, 191, 231)',
       backgroundColor2: 'rgb(144, 191, 231)',
       backgroundColor3: 'rgb(144, 191, 231)'
-
     })
   }
 
