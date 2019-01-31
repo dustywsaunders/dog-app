@@ -3,10 +3,12 @@ import *  as React from 'react';
 export default function DogPics(props) {
   
   return (
+  <div>
     <div>
       <p className="Guess">Can you guess the dog breed?</p>
-      {props.answer}
-<div className="AllOptions">
+      <p className = "Hint">hint: This dog breed's name has {props.current.length} letters. It starts with '{props.current[0]}' and ends with '{props.current[props.current.length-1]}'.</p>
+    </div>
+    <div className="AllOptions">
   <button className="Option" onClick={props.handleCorrect} 
   style={{backgroundColor: props.localState.backgroundColor1, order: props.localState.buttonOrder[0]}}>
   {props.current}</button>
