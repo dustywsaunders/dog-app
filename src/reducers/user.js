@@ -1,11 +1,33 @@
 import { ADD_USER } from "../actions/addUser";
+import { ADD_POINT } from "../actions/addPoint";
+import { SET_CURRENT } from "../actions/setCurrent";
+import { MINUS_POINT } from "../actions/minusPoint";
 
-export default  (state = {}, action = {}) => {
+
+
+const defUser = {
+  points: 0,
+  wrong: 0
+}
+
+
+export default  (state = defUser, action = {}) => {
+
   switch (action.type) {
     case ADD_USER:
-    const newUser = action.payload
-    return newUser
+    return { ...state, firstName: action.payload.firstName }
   
+    case ADD_POINT:
+    return { ...state, points: state.points + action.payload.points }
+   
+    case MINUS_POINT:
+    return { ...state, wrong: state.wrong + action.payload.points }
+
+    case SET_CURRENT:
+    return [
+
+    ]
+
 
      default:
       return state
