@@ -6,22 +6,36 @@ import { addPoint } from '../actions/addPoint'
 import { connect } from 'react-redux'
 import DogPics from './DogPics'
 
+let level = 3
+
+
+// function determineLevel() {  
+//   if (this.props.userPoint <= 3) {
+//     level = 3
+//   } else if (this.props.userPoint > 3 && this.props.userPoint <= 6){
+//     level = 6
+//   }
+// };
+
+// determineLevel()
+
+
 function changeDogName(){
-const arr = []
-while(arr.length < 3){
-var r = Math.floor(Math.random()*87);
-if(arr.indexOf(r) === -1) arr.push(r);
-}
-return arr
+  const arr = []
+  while(arr.length < 3){
+  var r = Math.floor(Math.random() * level);
+  if(arr.indexOf(r) === -1) arr.push(r);
+  }
+  return arr
 }
 
 function changeOrderButtons(){
-const orderButton = []
-while(orderButton.length <= 2){
-var q = Math.floor(Math.random()*3);
-if(orderButton.indexOf(q) === -1) orderButton.push(q);
-} 
-return orderButton
+  const orderButton = []
+  while(orderButton.length <= 2){
+  var q = Math.floor(Math.random() * level);
+  if(orderButton.indexOf(q) === -1) orderButton.push(q);
+  } 
+  return orderButton
 }
 
 
@@ -34,12 +48,22 @@ class DogPicsContainer extends React.Component {
     buttonOrder: changeOrderButtons()
     }
 
+    determineLevel() {  
+      if (this.props.userPoint <= 3) {
+        level = 3
+      } else if (this.props.userPoint > 3 && this.props.userPoint <= 6){
+        level = 6
+      }
+    };
+    
+
 
   handleCorrect = () => {
     this.setState({backgroundColor1: 'lightgreen'})
   
 
     this.props.addPoint(1)
+    this.determineLevel()
 
 
     setTimeout(() => {
@@ -122,14 +146,17 @@ class DogPicsContainer extends React.Component {
   } 
 
   render() {
-    console.log(this.state.dogName)
-    console.log(this.state.buttonOrder)
-    // console.log(this.props);
+    // console.log(this.state.dogName)
+    // console.log(this.state.buttonOrder)
+    console.log(this.props.userPoint, "userpoint");
+    console.log(level, "level");
+    
+
     if (!this.props.allbreeds) return 'Loading...'
     return (
       <div>
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
-      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state}/>
+      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} addPoint = {this.props.addPoint} userPoint = {this.props.userPoint}/>
       </div>
       
 
@@ -143,7 +170,7 @@ const mapStateToProps = (state) => {
   return {
     allbreeds: state.breeds.allbreeds,
     current: state.breeds.current,
-    user: state.user
+    userPoint: state.user.points
   }
 }
 

@@ -40,7 +40,7 @@ class ImageContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.breeds.current);
+  // console.log(state.breeds.current);
   
   return {
     image: state.image,
