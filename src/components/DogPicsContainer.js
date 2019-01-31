@@ -25,7 +25,7 @@ function changeDogName(){
 function changeOrderButtons(){
   const orderButton = []
   while(orderButton.length <= 2){
-  var q = Math.floor(Math.random() * level);
+  var q = Math.floor(Math.random() * 3);
   if(orderButton.indexOf(q) === -1) orderButton.push(q);
   } 
   return orderButton
@@ -41,20 +41,16 @@ class DogPicsContainer extends React.Component {
   }
 
 
-
   determineLevel() {
     if (this.props.userPoint%10 === 0 && this.props.userPoint <= 270) {
       level += 3
     }
   }
-  
+
   handleCorrect = () => {
     this.setState({backgroundColor1: 'lightgreen'})
-  
-
     this.props.addPoint(1)
     this.determineLevel()
-
 
     setTimeout(() => {
       this.props.getBreeds(level)
@@ -65,17 +61,13 @@ class DogPicsContainer extends React.Component {
         this.props.getImage(current)
       }, 100)
       this.resetButton()
-      
     }, 2000)    
   }
 
   handleWrong1 = () => {
-
     this.setState({backgroundColor2: 'salmon'})
     this.setState({backgroundColor3: 'salmon'})
     this.determineLevel()
-
-
     this.props.minusPoint(1)
 
     this.setState({backgroundColor1: 'lightgreen'})
@@ -88,17 +80,13 @@ class DogPicsContainer extends React.Component {
         this.props.getImage(current)
       }, 100)
       this.resetButton()
-      
     }, 2000)  
-
   }
 
   handleWrong2 = () => {
     this.setState({backgroundColor2: 'salmon'})
     this.setState({backgroundColor3: 'salmon'})
     this.determineLevel()
-
-
     this.setState({backgroundColor1: 'lightgreen'})
 
     this.props.minusPoint(1)
@@ -134,15 +122,23 @@ class DogPicsContainer extends React.Component {
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyPress)
   }
-  handleKeyPress(event) {
-    if (event.keyCode === 37) {
+
+
+  handleKeyPress = (event) => {
+    if (event.keyCode === 37 && this.state.buttonOrder[0]===0) {
+      this.handleCorrect()
       console.log('you pressed left');
     }
-    else if (event.keyCode === 40) {
+    else if (event.keyCode === 40 && this.state.buttonOrder[0]===1) {
+      this.handleCorrect()
       console.log('you pressed down');
     }
-    else if (event.keyCode === 39) {
+    else if (event.keyCode === 39 && this.state.buttonOrder[0]===2) {
+      this.handleCorrect()
       console.log('you pressed right');
+    }
+    else {
+      this.handleWrong1()
     }
   } 
 
