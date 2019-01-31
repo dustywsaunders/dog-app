@@ -3,6 +3,7 @@ import *  as React from 'react';
 export default function DogPics(props) {
   
   return (
+    
   <div>
     <div>
       <p className="Guess">Can you guess the dog breed?</p>
