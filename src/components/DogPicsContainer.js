@@ -10,7 +10,7 @@ import User from './User'
 function changeDogName(){
 const arr = []
 while(arr.length < 3){
-var r = Math.floor(Math.random()*3);
+var r = Math.floor(Math.random()*87);
 if(arr.indexOf(r) === -1) arr.push(r);
 }
 return arr
