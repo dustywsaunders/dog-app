@@ -8,18 +8,6 @@ import DogPics from './DogPics'
 
 let level = 3
 
-
-// function determineLevel() {  
-//   if (this.props.userPoint <= 3) {
-//     level = 3
-//   } else if (this.props.userPoint > 3 && this.props.userPoint <= 6){
-//     level = 6
-//   }
-// };
-
-// determineLevel()
-
-
 function changeDogName(){
   const arr = []
   while(arr.length < 3){
@@ -28,6 +16,8 @@ function changeDogName(){
   }
   return arr
 }
+// const num = changeDogName()
+
 
 function changeOrderButtons(){
   const orderButton = []
@@ -38,13 +28,12 @@ function changeOrderButtons(){
   return orderButton
 }
 
-
 class DogPicsContainer extends React.Component {
   state = {
     backgroundColor1: 'rgb(144, 191, 231)',
     backgroundColor2: 'rgb(144, 191, 231)',
     backgroundColor3: 'rgb(144, 191, 231)',
-    dogName: changeDogName(),
+    dogName: this.checkDogName(),
     buttonOrder: changeOrderButtons()
     }
 
@@ -58,6 +47,9 @@ class DogPicsContainer extends React.Component {
       }
     };
     
+
+    }  
+
   handleCorrect = () => {
     this.setState({backgroundColor1: 'lightgreen'})
   
@@ -69,7 +61,7 @@ class DogPicsContainer extends React.Component {
     setTimeout(() => {
       this.props.getBreeds(level)
       setTimeout(() => {
-        this.setState({dogName: changeDogName(),
+        this.setState({dogName: this.checkDogName(),
           buttonOrder: changeOrderButtons()})
         const current = this.props.current
         this.props.getImage(current)
@@ -149,16 +141,21 @@ class DogPicsContainer extends React.Component {
     }
   } 
 
+  checkDogName() {
+    if (this.props.allbreeds === null) return ['option1', 'option2']
+    let num = changeDogName()
+    let selectNum = num.filter(number => this.props.current !== Object.keys(this.props.allbreeds)[number])
+    return [Object.keys(this.props.allbreeds)[selectNum[0]], Object.keys(this.props.allbreeds)[selectNum[1]]]
+    }
+
   render() {
-    // console.log(this.state.dogName)
-    // console.log(this.state.buttonOrder)
-    console.log(this.props.userPoint, "userpoint");
-    console.log(level, "level");
-    console.log(this.props, "props");
-    
+
     
 
     if (!this.props.allbreeds) return 'Loading...'
+    if (this.props.allbreeds === null) return 'Loading...'
+
+
     return (
       <div>
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
@@ -167,12 +164,12 @@ class DogPicsContainer extends React.Component {
       
 
     )
-    
 
   }
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     allbreeds: state.breeds.allbreeds,
     current: state.breeds.current,
@@ -181,5 +178,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-
 export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint, level })(DogPicsContainer)
+
+
