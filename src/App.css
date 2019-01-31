@@ -38,6 +38,19 @@
   font-size: 1.5rem;
 }
 
+.Option:focus {
+  outline-style: none;
+}
+
+.Option:hover {
+  transform: scale(1.2);
+}
+
+.Hint {
+  color: dimgray;
+  font-style: italic;
+}
+
 .Footer {
   font-size: 1rem;
   color: white;
