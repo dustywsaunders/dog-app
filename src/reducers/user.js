@@ -1,6 +1,6 @@
 import { ADD_USER } from "../actions/addUser";
 import { ADD_POINT } from "../actions/addPoint";
-import { SET_CURRENT } from "../actions/setCurrent";
+// import { SET_CURRENT } from "../actions/setCurrent";
 import { MINUS_POINT } from "../actions/minusPoint";
 
 
@@ -23,10 +23,10 @@ export default  (state = defUser, action = {}) => {
     case MINUS_POINT:
     return { ...state, wrong: state.wrong + action.payload.points }
 
-    case SET_CURRENT:
-    return [
+    // case SET_CURRENT:
+    // return [
 
-    ]
+    // ]
 
 
      default:

@@ -40,11 +40,11 @@ class DogPicsContainer extends React.Component {
     }
 
   determineLevel() {  
-    if (this.props.userPoint <= 2) {
+    if (this.props.userPoint <= 10) {
       level = 3
-    } else if (this.props.userPoint >= 3 && this.props.userPoint <= 4){
+    } else if (this.props.userPoint >= 11 && this.props.userPoint <= 20){
       level = 6
-    } else if (this.props.userPoint >= 5 && this.props.userPoint <= 6){
+    } else if (this.props.userPoint >= 21 && this.props.userPoint <= 30){
       level = 9
     }
   };
@@ -86,7 +86,7 @@ class DogPicsContainer extends React.Component {
     setTimeout(() => {
       this.props.getBreeds(level)
       setTimeout(() => {
-        this.setState({dogName: changeDogName(),
+        this.setState({dogName: this.checkDogName(),
           buttonOrder: changeOrderButtons()})
         const current = this.props.current
         this.props.getImage(current)
@@ -110,7 +110,7 @@ class DogPicsContainer extends React.Component {
     setTimeout(() => {
       this.props.getBreeds(level)
       setTimeout(() => {
-        this.setState({dogName: changeDogName(),
+        this.setState({dogName: this.checkDogName(),
           buttonOrder: changeOrderButtons()})
         const current = this.props.current
         this.props.getImage(current)
@@ -149,7 +149,7 @@ class DogPicsContainer extends React.Component {
   } 
 
   checkDogName() {
-    if (this.props.allbreeds === null) return ['option1', 'option2']
+    if (this.props.allbreeds === null) return ['akita', 'appenzeller']
     let num = changeDogName()
     let selectNum = num.filter(number => this.props.current !== Object.keys(this.props.allbreeds)[number])
     return [Object.keys(this.props.allbreeds)[selectNum[0]], Object.keys(this.props.allbreeds)[selectNum[1]]]
@@ -162,7 +162,7 @@ class DogPicsContainer extends React.Component {
 
     return (
       <div>
-        <Progress points = {this.props.user.points} wrong = {this.props.user.wrong}/>
+      <Progress points = {this.props.user.points} wrong = {this.props.user.wrong}/>
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
       handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} addPoint = {this.props.addPoint} userPoint = {this.props.userPoint} level={this.level}/>
       </div>
@@ -177,6 +177,7 @@ const mapStateToProps = (state) => {
     allbreeds: state.breeds.allbreeds,
     current: state.breeds.current,
     userPoint: state.user.points,
+    user: state.user,
     level: level
   }
 }
