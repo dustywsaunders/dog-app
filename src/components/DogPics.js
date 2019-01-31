@@ -1,6 +1,7 @@
 import *  as React from 'react';
 
 export default function DogPics(props) {
+  
   return (
     <div>
       <p className="Guess">Can you guess the dog breed?</p>
@@ -11,10 +12,11 @@ export default function DogPics(props) {
   {props.current}</button>
   <button className="Option" onClick={props.handleWrong1}
   style={{backgroundColor: props.localState.backgroundColor2, order: props.localState.buttonOrder[1]}}>
-  {Object.keys(props.allbreeds)[props.localState.dogName[1]]}</button>
+  {props.localState.dogName[0]}</button>
   <button className="Option" onClick={props.handleWrong2}
   style={{backgroundColor: props.localState.backgroundColor3, order: props.localState.buttonOrder[2]}}>
-  {Object.keys(props.allbreeds)[props.localState.dogName[2]]}</button>
+  {props.localState.dogName[1]}</button>
   </div>
   </div>
-  )}
+  )
+}
