@@ -12,22 +12,25 @@ const defUser = {
 }
 
 
-export default  (state = defUser, action = {}) => {
+export default (state = defUser, action = {}) => {
 
   switch (action.type) {
     case ADD_USER:
-    return { ...state, firstName: action.payload.firstName }
-  
+      return { ...state, firstName: action.payload.firstName }
+
     case ADD_POINT:
-    return { ...state, points: state.points + action.payload.points }
-   
+      return { ...state, points: state.points + action.payload.points }
+
     case MINUS_POINT:
-    return { ...state, wrong: state.wrong + action.payload.points }
+      return { ...state, wrong: state.wrong + action.payload.points }
 
+    case SET_CURRENT:
+      return {
+        ...state,
+        known: state.known.concat(action.payload)
+      }
 
-
-
-     default:
+    default:
       return state
   }
 }
