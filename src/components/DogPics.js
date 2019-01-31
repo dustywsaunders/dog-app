@@ -1,4 +1,5 @@
 import *  as React from 'react';
+import Hint from './Hint'
 
 export default function DogPics(props) {
   
@@ -7,7 +8,8 @@ export default function DogPics(props) {
   <div>
     <div>
       <p className="Guess">Can you guess the dog breed?</p>
-      <p className = "Hint">hint: This dog breed's name has {props.current.length} letters. It starts with '{props.current[0]}' and ends with '{props.current[props.current.length-1]}'.</p>
+      <Hint current={props.current} known={props.user.known}/>
+      {/* <p className = "Hint">hint: This dog breed's name has {props.current.length} letters. It starts with '{props.current[0]}' and ends with '{props.current[props.current.length-1]}'.</p> */}
     </div>
     <div className="AllOptions">
   <button className="Option" onClick={props.handleCorrect} 
