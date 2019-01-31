@@ -148,4 +148,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint, User})(DogPicsContainer)
+export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint })(DogPicsContainer)
