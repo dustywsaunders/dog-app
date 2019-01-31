@@ -5,12 +5,11 @@ import { setBreeds } from '../actions/setBreeds'
 import { addPoint } from '../actions/addPoint'
 import { connect } from 'react-redux'
 import DogPics from './DogPics'
-import User from './User'
 
 function changeDogName(){
 const arr = []
 while(arr.length < 3){
-var r = Math.floor(Math.random()*3);
+var r = Math.floor(Math.random()*87);
 if(arr.indexOf(r) === -1) arr.push(r);
 }
 return arr
@@ -37,7 +36,11 @@ class DogPicsContainer extends React.Component {
 
 
   handleCorrect = () => {
-    this.setState({backgroundColor1: 'green'})
+    this.setState({backgroundColor1: 'lightgreen'})
+  
+
+    this.props.addPoint(1)
+
 
     setTimeout(() => {
       this.props.getBreeds()
@@ -54,10 +57,10 @@ class DogPicsContainer extends React.Component {
 
   handleWrong1 = () => {
 
-    this.setState({backgroundColor2: 'red'})
-    this.setState({backgroundColor3: 'red'})
+    this.setState({backgroundColor2: 'salmon'})
+    this.setState({backgroundColor3: 'salmon'})
 
-    this.setState({backgroundColor1: 'green'})
+    this.setState({backgroundColor1: 'lightgreen'})
     setTimeout(() => {
       this.props.getBreeds()
       setTimeout(() => {
@@ -73,10 +76,10 @@ class DogPicsContainer extends React.Component {
   }
 
   handleWrong2 = () => {
-    this.setState({backgroundColor2: 'red'})
-    this.setState({backgroundColor3: 'red'})
+    this.setState({backgroundColor2: 'salmon'})
+    this.setState({backgroundColor3: 'salmon'})
 
-    this.setState({backgroundColor1: 'green'})
+    this.setState({backgroundColor1: 'lightgreen'})
     setTimeout(() => {
       this.props.getBreeds()
       setTimeout(() => {
@@ -128,6 +131,8 @@ class DogPicsContainer extends React.Component {
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
       handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state}/>
       </div>
+      
+
     )
     
 
@@ -142,4 +147,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint, User})(DogPicsContainer)
+
+export default connect (mapStateToProps, { getImage, getBreeds, setBreeds, addPoint })(DogPicsContainer)
