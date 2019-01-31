@@ -10,7 +10,7 @@ export function getImage (current) {
  return function (dispatch) {
   request(`https://dog.ceo/api/breed/${ current }/images`)
   // .then(response => console.log(response.body.message[1]))
-  .then(response => dispatch(setImage(response.body.message[0])))
+  .then(response => dispatch(setImage(response.body.message[Math.floor(Math.random() * response.body.message.length)])))
  }
 }
 
