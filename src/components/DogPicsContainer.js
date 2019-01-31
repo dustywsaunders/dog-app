@@ -38,6 +38,7 @@ class DogPicsContainer extends React.Component {
 
   handleCorrect = () => {
     this.setState({backgroundColor1: 'green'})
+
     setTimeout(() => {
       this.props.getBreeds()
       setTimeout(() => {
