@@ -72,7 +72,22 @@ class DogPicsContainer extends React.Component {
 
   componentDidMount() {
     this.props.getBreeds()
+    document.addEventListener("keydown", this.handleKeyPress)
   }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress)
+  }
+  handleKeyPress(event) {
+    if (event.keyCode === 37) {
+      console.log('you pressed left');
+    }
+    else if (event.keyCode === 40) {
+      console.log('you pressed down');
+    }
+    else if (event.keyCode === 39) {
+      console.log('you pressed right');
+    }
+  } 
 
   render() {
     console.log(this.state.dogName)

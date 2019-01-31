@@ -1,5 +1,6 @@
 import { ADD_USER } from "../actions/addUser";
 import { ADD_POINT } from "../actions/addPoint";
+import { SET_CURRENT } from "../actions/setCurrent";
 
 export default  (state = {}, action = {}) => {
   switch (action.type) {
@@ -11,6 +12,11 @@ export default  (state = {}, action = {}) => {
     console.log('this is state', state)
     return [
       ...state
+    ]
+
+    case SET_CURRENT:
+    return [
+
     ]
 
      default:

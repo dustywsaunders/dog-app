@@ -12,7 +12,7 @@ class App extends Component {
     
     return (
       <div className="App">
-        <TestButton />
+        {/* <TestButton /> */}
         <header>
           <h1 className='Title'>Doggo</h1>
         </header>
