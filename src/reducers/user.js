@@ -11,7 +11,7 @@ export default  (state = defUser, action = {}) => {
     return newUser
   
     case ADD_POINT:
-    state.points += 1
+    return { ...state, points: state.points + action.payload.points }
 
      default:
       return state
