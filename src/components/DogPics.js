@@ -5,6 +5,7 @@ export default function DogPics(props) {
   <div>
     <div>
       <p className = "Hint">hint: This dog breed's name has {props.current.length} letters. It starts with '{props.current[0]}' and ends with '{props.current[props.current.length-1]}'.</p>
+      <p className = "Points">Woof, you guessed {props.points} breeds correctly.</p>
     </div>
     <div className="AllOptions">
       <button className="Option" onClick={props.handleCorrect} 

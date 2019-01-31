@@ -122,6 +122,7 @@ class DogPicsContainer extends React.Component {
   } 
 
   render() {
+    console.log('this is this points', this.props.user.points)
     console.log(this.state.dogName)
     console.log(this.state.buttonOrder)
     // console.log(this.props);
@@ -129,7 +130,7 @@ class DogPicsContainer extends React.Component {
     return (
       <div>
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } handleCorrect = {this.handleCorrect}
-      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state}/>
+      handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} localState={this.state} points = {this.props.user.points}/>
       </div>
       
 
