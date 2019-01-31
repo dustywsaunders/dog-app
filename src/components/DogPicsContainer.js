@@ -36,7 +36,8 @@ class DogPicsContainer extends React.Component {
 
 
   handleCorrect = () => {
-    this.setState({backgroundColor1: 'green'})
+    this.setState({backgroundColor1: 'lightgreen'})
+  
 
     this.props.addPoint(1)
 
@@ -56,10 +57,10 @@ class DogPicsContainer extends React.Component {
 
   handleWrong1 = () => {
 
-    this.setState({backgroundColor2: 'red'})
-    this.setState({backgroundColor3: 'red'})
+    this.setState({backgroundColor2: 'salmon'})
+    this.setState({backgroundColor3: 'salmon'})
 
-    this.setState({backgroundColor1: 'green'})
+    this.setState({backgroundColor1: 'lightgreen'})
     setTimeout(() => {
       this.props.getBreeds()
       setTimeout(() => {
@@ -75,10 +76,10 @@ class DogPicsContainer extends React.Component {
   }
 
   handleWrong2 = () => {
-    this.setState({backgroundColor2: 'red'})
-    this.setState({backgroundColor3: 'red'})
+    this.setState({backgroundColor2: 'salmon'})
+    this.setState({backgroundColor3: 'salmon'})
 
-    this.setState({backgroundColor1: 'green'})
+    this.setState({backgroundColor1: 'lightgreen'})
     setTimeout(() => {
       this.props.getBreeds()
       setTimeout(() => {
