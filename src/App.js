@@ -17,8 +17,8 @@ class App extends Component {
           <h1 className='Title'>Doggo</h1>
         </header>
         <User />
-        <ImageContainer key = 'thisisakey'/>
-        <DogPicsContainer key = {this.current}/>
+        <ImageContainer key = 'image'/>
+        <DogPicsContainer key = 'questions'/>
         <footer className='Footer'>
           <p>Made with ❤ by Leonie, Denis & Dusty at Codaisseur</p>
         </footer>

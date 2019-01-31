@@ -39,7 +39,7 @@
 }
 
 .Option:focus {
-  outline-style: none;
+  transform: scale(1.2);
 }
 
 .Option:hover {
