@@ -65,7 +65,7 @@ class DogPicsContainer extends React.Component {
           buttonOrder: changeOrderButtons()})
         const current = this.props.current
         this.props.getImage(current)
-      }, 50)
+      }, 200)
       this.resetButton()
       
     }, 2000)    
@@ -88,7 +88,7 @@ class DogPicsContainer extends React.Component {
           buttonOrder: changeOrderButtons()})
         const current = this.props.current
         this.props.getImage(current)
-      }, 50)
+      }, 200)
       this.resetButton()
       
     }, 2000)  
@@ -112,7 +112,7 @@ class DogPicsContainer extends React.Component {
           buttonOrder: changeOrderButtons()})
         const current = this.props.current
         this.props.getImage(current)
-      }, 50)
+      }, 200)
       this.resetButton()
       
     }, 2000) 
