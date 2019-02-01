@@ -36,7 +36,7 @@ header {
 }
 
 .Progress {
-  text-align: right;
+  text-align: left;
 }
 
 input {
@@ -136,3 +136,9 @@ a {
 
 }
 
+.w3-light-grey {
+  width: 10rem;
+  height: 1;
+  color: black;
+  border: 1px white solid;
+}
