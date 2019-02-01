@@ -1,5 +1,6 @@
 .App {
-  background-color: rgb(0, 129, 146);
+  /* background-color: rgb(0, 129, 146); */
+  background-image: linear-gradient(rgb(5, 61, 70), rgb(10, 166, 187));
   margin: 0 auto;
   text-align: center;
   width: 100%;
@@ -35,7 +36,7 @@ header {
 }
 
 .Progress {
-  text-align: right;
+  text-align: left;
 }
 
 input {
@@ -73,6 +74,7 @@ input:focus {
   height: 20rem;
   width: 20rem;
   border: 0px;
+  box-shadow: 11px 11px 28px -6px rgba(0,0,0,0.52);
 }
 
 .AllOptions, .keymaps {
@@ -89,7 +91,6 @@ input:focus {
 }
 
 .Option {
-  /* background-color: rgb(144, 191, 231); */
   border-radius: 50%;
   height: 9rem;
   width: 9rem;  
@@ -100,6 +101,7 @@ input:focus {
   border: 0px;
   font-family: Raleway;
   color: black;
+  box-shadow: 11px 11px 28px -6px rgba(0,0,0,0.52);
 }
 
 .Option:focus {
@@ -134,3 +136,9 @@ a {
 
 }
 
+.w3-light-grey {
+  width: 10rem;
+  height: 1;
+  color: black;
+  border: 1px white solid;
+}
