@@ -4,11 +4,7 @@ import Hint from './Hint'
 export default function DogPics(props) {
   return (
     <div>
-      <div>
-        <p className="Guess">Can you guess the dog breed?</p>
-        <Hint current={props.current} known={props.user.known}/>
-      </div>
-      <div className="AllOptions">
+        <div className="AllOptions">
         <button className="Option" onClick={props.handleCorrect} 
         style={{backgroundColor: props.localState.backgroundColor1, 
         order: props.localState.buttonOrder[0]}}>{props.current}</button>
@@ -19,11 +15,12 @@ export default function DogPics(props) {
         style={{backgroundColor: props.localState.backgroundColor3, 
         order: props.localState.buttonOrder[2]}}>{props.localState.dogName[1]}</button>
       </div>
-      <div className = 'keymaps'>
+      {/* <div className = 'keymaps'>
         <img src={process.env.PUBLIC_URL + '/left.svg'} alt="logo"></img>
         <img src={process.env.PUBLIC_URL + '/down.svg'} alt="logo"></img>
         <img src={process.env.PUBLIC_URL + '/right.svg'} alt="logo"></img>
-      </div>
-    </div>
+      </div> */}
+      <Hint current={props.current} known={props.user.known}/>
+     </div>
   )
 }

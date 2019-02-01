@@ -21,20 +21,18 @@ class User extends React.Component {
   }
 
   render() {
-    if (!this.props.user.firstName) return (<div>    
-      <h2>Hi, what's your name?</h2>
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    </div>)
-    
+    if (!this.props.user.firstName)
+      return (
+        <div className='User'>
+          <form onSubmit={this.handleSubmit}>
+            <input placeholder='Your name?' type="text" name="name" onChange={this.handleChange} />
+          </form>
+        </div>)
+
+
     return (
-      <h2>Hi, {this.props.user.firstName}</h2>
-   )
+      <h2 className='User' >Hi, {this.props.user.firstName}</h2>
+    )
   }
 }
 
@@ -43,5 +41,6 @@ const mapStateToProps = (state) => {
     user: state.user
   }
 }
+
 
 export default connect (mapStateToProps, { addUser })(User)

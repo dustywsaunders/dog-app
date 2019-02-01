@@ -6,7 +6,7 @@ import { addPoint } from '../actions/addPoint'
 import { minusPoint } from '../actions/minusPoint'
 import { connect } from 'react-redux'
 import DogPics from './DogPics'
-import Progress from './Progress';
+// import Progress from './Progress';
 
 const initialState = {backgroundColor1: 'rgb(144, 191, 231)',
 backgroundColor2: 'rgb(144, 191, 231)',
@@ -39,11 +39,7 @@ class DogPicsContainer extends React.Component {
     buttonOrder: changeOrderButtons()
   }
 
-  determineLevel() {
-    console.log(level, 'level');
-    console.log(this.props.userPoint, 'user points');
-    console.log(this.props.userPoint%10, 'modulo');
-    
+  determineLevel() { 
     if (this.props.userPoint%10 === 0 && this.props.userPoint > 9 && this.props.userPoint < 270) {
       level += 3
     } else if (this.props.userPoint > 270) {
@@ -131,7 +127,6 @@ class DogPicsContainer extends React.Component {
 
     return (
       <div>
-        <Progress points = {this.props.user.points} wrong = {this.props.user.wrong}/>
         <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } 
           handleCorrect = {this.handleCorrect} handleWrong1 = {this.handleWrong1} 
           localState={this.state} addPoint = {this.props.addPoint} 

@@ -1,30 +1,87 @@
 .App {
-  background-color: rgb(228, 152, 228);
+  background-color: rgb(0, 129, 146);
   margin: 0 auto;
   text-align: center;
+  width: 100%;
+}
 
+header {
+  width: 80vw;
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .Title {
   font-size: 5rem;
   color: white;
+  font-family: Indie flower;
+  max-width: 50%;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.User {
+  margin: auto 1rem;
+  padding: 2rem auto;
+  font-size: 1rem;
+  color: white;
+  font-family: Raleway;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.Progress {
+  text-align: right;
+}
+
+input {
+  padding: 1rem;
+  width: 8rem;
+  height: 1rem;
+  font-size: 1rem;
+  color: rgb(145, 182, 187);
+  text-align: center;
+  background: transparent;
+  border: 1px white solid;
+  display: block;
+  font-family: Raleway;
+  margin: 0.2rem auto;
+
+}
+
+input:focus {
+  background-color: transparent;
+  background: transparent;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
 }
 
 .Guess {
-  font-size: 3rem;
+  font-size: 1rem;
   color: white;
+  font-family: Indie flower;
 }
 
 .Dogimage {
   border-radius: 50%;
-  max-height: 20rem;
-  border: 2px solid rgb(144, 191, 231)
+  height: 20rem;
+  width: 20rem;
+  border: 0px;
 }
 
 .AllOptions, .keymaps {
+  max-width: 29rem;
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
   justify-content: space-around;
+
 }
 
 .keymaps img {
@@ -34,12 +91,15 @@
 .Option {
   /* background-color: rgb(144, 191, 231); */
   border-radius: 50%;
-  height: 10rem;
-  width: 10rem;  
+  height: 9rem;
+  width: 9rem;  
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
+  border: 0px;
+  font-family: Raleway;
+  color: black;
 }
 
 .Option:focus {
@@ -52,11 +112,25 @@
 }
 
 .Hint {
-  color: dimgray;
-  font-style: italic;
+  color: white;
+  font-family: Indie Flower;
+  margin: 1rem auto;
+  height: 4rem;
 }
 
 .Footer {
   font-size: 1rem;
   color: white;
+  padding: 2rem auto;
+  height: 6rem;
+  font-family: Raleway;
+
 }
+a {
+  text-decoration: none;
+  color: white;
+  line-height: 3rem;
+  font-family: Raleway;
+
+}
+
