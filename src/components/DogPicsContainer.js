@@ -137,7 +137,7 @@ class DogPicsContainer extends React.Component {
       this.handleCorrect()
       console.log('you pressed right');
     }
-    else {
+    else if (event.keyCode === 37 || event.keyCode === 40 || event.keyCode === 39) {
       this.handleWrong1()
     }
   } 
