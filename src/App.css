@@ -39,7 +39,8 @@
 }
 
 .Option:focus {
-  transform: scale(1.2);
+  outline: none;
+
 }
 
 .Option:hover {
