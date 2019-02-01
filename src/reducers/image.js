@@ -1,4 +1,3 @@
-
 import { SET_IMAGE } from "../actions/setImage";
 
 export default  (state = [], action = {}) => {
