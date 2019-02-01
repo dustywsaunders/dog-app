@@ -7,9 +7,6 @@ export default function DogPics(props) {
     
   <div>
     <div>
-      <p className="Guess">Can you guess the dog breed?</p>
-      <Hint current={props.current} known={props.user.known}/>
-      {/* <p className = "Hint">hint: This dog breed's name has {props.current.length} letters. It starts with '{props.current[0]}' and ends with '{props.current[props.current.length-1]}'.</p> */}
     </div>
     <div className="AllOptions">
   <button className="Option" onClick={props.handleCorrect} 
@@ -22,6 +19,7 @@ export default function DogPics(props) {
   style={{backgroundColor: props.localState.backgroundColor3, order: props.localState.buttonOrder[2]}}>
   {props.localState.dogName[1]}</button>
   </div>
+      <Hint current={props.current} known={props.user.known}/>
   </div>
   )
 }

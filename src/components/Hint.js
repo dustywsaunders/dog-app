@@ -7,6 +7,6 @@ export default function DogPics(props) {
     )
   }
   return (
-    <p></p>
+    <p className='Hidden'>Woof</p>
   )
 }

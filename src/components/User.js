@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import {addUser} from '../actions/addUser'
+import { addUser } from '../actions/addUser'
 
 
 class User extends React.Component {
@@ -22,21 +22,18 @@ class User extends React.Component {
   }
 
   render() {
-    // console.log('this are props from user', this.props)
-    if (!this.props.user.firstName) return (<div>    
-      <h2>Hi, what's your name?</h2>
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    </div>)
-    
+    if (!this.props.user.firstName)
+      return (
+        <div className='User'>
+          <form onSubmit={this.handleSubmit}>
+            <input placeholder='Your name?' type="text" name="name" onChange={this.handleChange} />
+            {/* <input type="submit" value="ENTER"/> */}
+          </form>
+        </div>)
+
     return (
-      <h2>Hi, {this.props.user.firstName}</h2>
-   )
+      <h2 className='User' >Hi, {this.props.user.firstName}</h2>
+    )
   }
 }
 
@@ -46,4 +43,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect (mapStateToProps, { addUser })(User)
+export default connect(mapStateToProps, { addUser })(User)

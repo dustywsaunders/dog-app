@@ -7,7 +7,7 @@ import { addPoint } from '../actions/addPoint'
 import { minusPoint } from '../actions/minusPoint'
 import { connect } from 'react-redux'
 import DogPics from './DogPics'
-import Progress from './Progress';
+// import Progress from './Progress';
 
 let level = 3
 
@@ -160,7 +160,7 @@ class DogPicsContainer extends React.Component {
 
     return (
       <div>
-      <Progress points = {this.props.user.points} wrong = {this.props.user.wrong}/>
+      {/* <Progress points = {this.props.user.points} wrong = {this.props.user.wrong}/> */}
       <DogPics allbreeds = { this.props.allbreeds } current = { this.props.current } 
       handleCorrect = {this.handleCorrect} handleWrong1 = {this.handleWrong1} handleWrong2 = {this.handleWrong2} 
       localState={this.state} addPoint = {this.props.addPoint} userPoint = {this.props.userPoint} 
