@@ -42,8 +42,14 @@ class DogPicsContainer extends React.Component {
 
 
   determineLevel() {
-    if (this.props.userPoint%10 === 0 && this.props.userPoint <= 270) {
+    console.log(level, 'level');
+    console.log(this.props.userPoint, 'user points');
+    console.log(this.props.userPoint%10, 'modulo');
+    
+    if (this.props.userPoint%10 === 0 && this.props.userPoint > 9 && this.props.userPoint < 270) {
       level += 3
+    } else if (this.props.userPoint > 270) {
+      level = 87
     }
   }
 
