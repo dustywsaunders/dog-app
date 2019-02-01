@@ -20,8 +20,8 @@ class App extends Component {
         <ImageContainer key = 'image'/>
         <DogPicsContainer key = 'questions'/>
         <footer className='Footer'>
-          <a href = "https://goo.gl/forms/4dbbzYDqDTxHOxsv2" title = "googleform" target = "blank">BETA TESTERS FEEDBACK</a>
           <p>Made with ❤ by Leonie, Denis & Dusty at Codaisseur</p>
+          <a href = "https://goo.gl/forms/4dbbzYDqDTxHOxsv2" title = "googleform" target = "blank">Give us your feedback, woof!</a>
         </footer>
       </div>
     );

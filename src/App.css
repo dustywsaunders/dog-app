@@ -75,7 +75,7 @@ input:focus {
   border: 0px;
 }
 
-.AllOptions .keymaps {
+.AllOptions, .keymaps {
   max-width: 29rem;
   display: flex;
   flex-direction: row;
@@ -98,6 +98,8 @@ input:focus {
   align-items: center;
   font-size: 1.5rem;
   border: 0px;
+  font-family: Raleway;
+  color: black;
 }
 
 .Option:focus {
@@ -110,7 +112,7 @@ input:focus {
 }
 
 .Hint {
-  color: rgb(145, 182, 187);
+  color: white;
   font-family: Indie Flower;
   margin: 1rem auto;
   height: 4rem;
@@ -119,7 +121,16 @@ input:focus {
 .Footer {
   font-size: 1rem;
   color: white;
-  padding: 4rem auto;
-  height: 2rem;
+  padding: 2rem auto;
+  height: 6rem;
+  font-family: Raleway;
+
+}
+a {
+  text-decoration: none;
+  color: white;
+  line-height: 3rem;
+  font-family: Raleway;
+
 }
 
