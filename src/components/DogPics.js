@@ -15,7 +15,7 @@ export default function DogPics(props) {
         <button className="Option" onClick={props.handleWrong1}
         style={{backgroundColor: props.localState.backgroundColor2, 
         order: props.localState.buttonOrder[1]}}>{props.localState.dogName[0]}</button>
-        <button className="Option" onClick={props.handleWrong2}
+        <button className="Option" onClick={props.handleWrong1}
         style={{backgroundColor: props.localState.backgroundColor3, 
         order: props.localState.buttonOrder[2]}}>{props.localState.dogName[1]}</button>
       </div>
