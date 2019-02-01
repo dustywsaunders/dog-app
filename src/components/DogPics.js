@@ -15,11 +15,11 @@ export default function DogPics(props) {
         style={{backgroundColor: props.localState.backgroundColor3, 
         order: props.localState.buttonOrder[2]}}>{props.localState.dogName[1]}</button>
       </div>
-      <div className = 'keymaps'>
+      {/* <div className = 'keymaps'>
         <img src={process.env.PUBLIC_URL + '/left.svg'} alt="logo"></img>
         <img src={process.env.PUBLIC_URL + '/down.svg'} alt="logo"></img>
         <img src={process.env.PUBLIC_URL + '/right.svg'} alt="logo"></img>
-      </div>
+      </div> */}
       <Hint current={props.current} known={props.user.known}/>
      </div>
   )
