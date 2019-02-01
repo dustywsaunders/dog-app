@@ -4,7 +4,6 @@ import { addUser } from '../actions/addUser'
 
 
 class User extends React.Component {
-
   handleChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
@@ -27,9 +26,9 @@ class User extends React.Component {
         <div className='User'>
           <form onSubmit={this.handleSubmit}>
             <input placeholder='Your name?' type="text" name="name" onChange={this.handleChange} />
-            {/* <input type="submit" value="ENTER"/> */}
           </form>
         </div>)
+
 
     return (
       <h2 className='User' >Hi, {this.props.user.firstName}</h2>
@@ -43,4 +42,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addUser })(User)
+
+export default connect (mapStateToProps, { addUser })(User)

@@ -75,13 +75,17 @@ input:focus {
   border: 0px;
 }
 
-.AllOptions {
+.AllOptions .keymaps {
   max-width: 29rem;
   display: flex;
   flex-direction: row;
   margin: 0 auto;
   justify-content: space-around;
 
+}
+
+.keymaps img {
+  max-height: 40px;
 }
 
 .Option {
@@ -97,7 +101,8 @@ input:focus {
 }
 
 .Option:focus {
-  transform: scale(1.2);
+  outline: none;
+
 }
 
 .Option:hover {
@@ -117,5 +122,4 @@ input:focus {
   padding: 4rem auto;
   height: 2rem;
 }
-
 
