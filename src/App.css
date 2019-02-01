@@ -21,10 +21,14 @@
   border: 2px solid rgb(144, 191, 231)
 }
 
-.AllOptions {
+.AllOptions, .keymaps {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.keymaps img {
+  max-height: 40px;
 }
 
 .Option {
@@ -39,7 +43,8 @@
 }
 
 .Option:focus {
-  transform: scale(1.2);
+  outline: none;
+
 }
 
 .Option:hover {

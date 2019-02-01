@@ -1,4 +1,3 @@
-
 import * as request from 'superagent';
 import { setBreeds } from './setBreeds'
 
@@ -10,4 +9,3 @@ export function getBreeds (level) {
   .then(response => dispatch(setBreeds(response.body.message, level)))
  }
 }
-  

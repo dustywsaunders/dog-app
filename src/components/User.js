@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
-import {addUser} from '../actions/addUser'
+import { addUser } from '../actions/addUser'
 
 
 class User extends React.Component {
-
   handleChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
@@ -22,7 +21,6 @@ class User extends React.Component {
   }
 
   render() {
-    // console.log('this are props from user', this.props)
     if (!this.props.user.firstName) return (<div>    
       <h2>Hi, what's your name?</h2>
       <form onSubmit={this.handleSubmit}>
