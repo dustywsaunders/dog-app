@@ -8,9 +8,9 @@ export default function Progress(props) {
   }
 
   return (
-    <div>
-      <p className="Points">Woof, you guessed {props.points} times correctly</p>
-      <p className="Progress">Your guess success rate is {successRate(props.points, props.wrong)} %</p>
+    <div className='User Progress'>
+      <p>Points: {props.points}</p>
+      <p>Success: {successRate(props.points, props.wrong)} %</p>
     </div>
   )
 }
